@@ -24,7 +24,7 @@ spec:
       containers:
       - name: frontend
         image: joindevops/frontend:1.2.0
-        Ports:
+        ports:
         - containerPort: 8080
 ---
 kind: Service
