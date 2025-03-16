@@ -1,0 +1,48 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: frontend
+  namespace: expense
+  labels:
+    app: frontend
+    tier: web
+    project: expense
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+      tier: web
+      project: expense  
+  template:
+    metadata:
+      labels:
+        app: frontend
+        tier: web
+        project: expense  
+    spec:
+      containers:
+      - name: frontend
+        image: joindevops/frontend:1.2.0
+        Ports:
+        - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend
+  namespace: expense
+spec:
+  type: LoadBalancer 
+  selector:
+    app: frontend
+    tier: web
+    project: expense
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+
+
+
