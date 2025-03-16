@@ -15,11 +15,10 @@ spec:
       project: expense
   template:
     metadata:
-      name: backend
-    labels:  
-      app: backend
-      tier: backend
-      project: expense
+      labels:  
+        app: backend
+        tier: backend
+        project: expense
     spec:
       containers:
       - name: backend
