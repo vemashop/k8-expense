@@ -24,4 +24,19 @@ spec:
       containers:
       - name: nginx
         image: joindevops/mysql:1.0.0
+---
+kind: Service
+apiVersion: apps/v1
+metadata:
+  name: mysql
+spec:
+  selector: 
+    app: mysql
+    tier: mysql
+    project: expense
+  ports:
+  - protocal: TCP
+    port: 3306
+    targetPort: 3306  
+             
 
