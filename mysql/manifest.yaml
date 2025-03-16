@@ -1,36 +1,8 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata: 
-#   name: mysql
-#   namespace: expense
-#   labels:
-#     app: mysql
-#     tier: mysql
-#     project: expense
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: mysql
-#       tier: mysql
-#       project: expense
-#   template:
-#     metadata: 
-#       labels:
-#        app: mysql
-#        tier: mysql
-#        project: expense      
-#     spec:
-#       containers:
-#         name: nginx
-#         image: joindevops/mysql:1.0.0
-
 apiVersion: apps/v1
 kind: Deployment
-metadata:
+metadata: 
   name: mysql
   namespace: expense
-  # labels of deployment resource
   labels:
     app: mysql
     tier: mysql
@@ -43,13 +15,13 @@ spec:
       tier: mysql
       project: expense
   template:
-    metadata:
+    metadata: 
       labels:
-        app: mysql
-        tier: mysql
-        project: expense
+       app: mysql
+       tier: mysql
+       project: expense      
     spec:
       containers:
       - name: nginx
         image: joindevops/mysql:1.0.0
-      
+
