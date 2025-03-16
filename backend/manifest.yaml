@@ -16,6 +16,9 @@ spec:
   template:
     metadata:
       name: backend
+      app: backend
+      tier: backend
+      project: expense
     spec:
       containers:
       - name: backend
@@ -25,6 +28,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: backend
+  namespace: expense
 spec:
   selector:
     app: backend
